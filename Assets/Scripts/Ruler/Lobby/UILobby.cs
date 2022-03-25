@@ -7,14 +7,16 @@ public class UILobby : MonoBehaviour
 {
     public void Init()
     {
+        Debug.LogWarning(":: UILobby : Initialise");
+
         this.AddButtonScenario_Dummy();
     }
 
     [SerializeField]
-    private Button BUTTON_Dummy = null;
+    private Button BUTTON_GameStart = null;
     private void AddButtonScenario_Dummy()
     {
-        this.BUTTON_Dummy.onClick.AddListener(() =>
+        this.BUTTON_GameStart.onClick.AddListener(() =>
         {
             App.oInstance.oManagerScene.LoadScene(Enums.eScene.SELECT);
         });
