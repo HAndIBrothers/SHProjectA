@@ -15,5 +15,4 @@ public class RulerLogo : Ruler
 
     // :: UI Logo
     public UILogo oUI;
-
 }

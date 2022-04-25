@@ -7,6 +7,7 @@ public static class Enums
         LOBBY = 2,
         SELECT = 3,
         IN_GAME = 4,
-        RESULT = 5
+        RESULT = 5,
+        MINI_GAME_01 = 6
     }
 }

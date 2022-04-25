@@ -5,18 +5,10 @@ using UnityEngine.UI;
 
 public class UISelect : MonoBehaviour
 {
+    [SerializeField]
+    private UISelectButtons UISelectButtons_Programer;
     public void Init()
     {
-        this.AddButtonScenario_Dummy();
-    }
-
-    [SerializeField]
-    private Button BUTTON_Dummy = null;
-    private void AddButtonScenario_Dummy()
-    {
-        this.BUTTON_Dummy.onClick.AddListener(() =>
-        {
-            App.oInstance.oManagerScene.LoadScene(Enums.eScene.IN_GAME);
-        });
+        this.UISelectButtons_Programer.Init();
     }
 }
