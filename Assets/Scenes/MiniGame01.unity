@@ -1365,8 +1365,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oSECTION_Bug: {fileID: 1840093134}
   PREFAB_Bug: {fileID: 4020746984395377356, guid: 4d3d9e718aeca144f8facd3960ffc08e, type: 3}
-  oRespawnSecond: 1.62
-  oDisappearSecond: 2.87
+  oRespawnSecond: 1
+  oDisappearSecond: 2
   BUTTON_Start: {fileID: 1570529246}
   TEXT_Score: {fileID: 766147020}
   TEXT_RemainingTime: {fileID: 1347930520}
@@ -1727,8 +1727,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -75}
+  m_SizeDelta: {x: -100, y: -250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1882399651
 GameObject:

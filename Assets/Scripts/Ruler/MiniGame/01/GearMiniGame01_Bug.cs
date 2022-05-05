@@ -16,11 +16,29 @@ public class GearMiniGame01_Bug : MonoBehaviour
         //float disappearSecond = Random.Range(1f, _disappearSecond);
         this.StartCoroutine(this.IENClose(_disappearSecond));
 
+        // :: ·£´ý ÁÂÇ¥ ÁöÁ¤
+        float randX = Random.Range(-_x, _x);
+        float randY = Random.Range(-_y, _y);
+        this.StartCoroutine(this.IENMove(new Vector2(randX, randY)));
+
         this.AddButtonScenario();
     }
     private void Close()
     {
+        this.StopAllCoroutines();
         Object.Destroy(this.gameObject);
+    }
+
+    private IEnumerator IENMove(Vector2 _goal, float _speed = 7)
+    {
+        while(true)
+        {
+            this.transform.localPosition
+                = Vector2.MoveTowards(this.transform.localPosition, _goal, 
+                Time.deltaTime * _speed * 100);
+
+            yield return null;
+        }
     }
 
     private void AddButtonScenario()

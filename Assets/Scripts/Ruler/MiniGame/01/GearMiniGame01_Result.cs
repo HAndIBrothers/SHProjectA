@@ -36,6 +36,7 @@ public class GearMiniGame01_Result : MonoBehaviour
         int allMoney = addMoney + extraMoney;
         this.OpenLog(null, string.Format("통장에 총 {0} 원이 입금되었군요.",
             allMoney));
+        App.oInstance.oManagerStatus.AddMoney(allMoney); // : 실제 추가
         // :: Log : 마지막 문구
         this.OpenLog(null, "개발자는 정말로 행복해졌습니다!");
 

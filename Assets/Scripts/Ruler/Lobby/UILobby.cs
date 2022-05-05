@@ -10,6 +10,9 @@ public class UILobby : MonoBehaviour
         Debug.LogWarning(":: UILobby : Initialise");
 
         this.AddButtonScenario_Dummy();
+
+        // :: ¼öÄ¡
+        this.Update_Money();
     }
 
     [SerializeField]
@@ -20,5 +23,12 @@ public class UILobby : MonoBehaviour
         {
             App.oInstance.oManagerScene.LoadScene(Enums.eScene.SELECT);
         });
+    }
+
+    [Header("Money")]
+    public Text TEXT_Money;
+    public void Update_Money()
+    {
+        this.TEXT_Money.text = App.oInstance.oManagerStatus.oMoney.ToString();
     }
 }

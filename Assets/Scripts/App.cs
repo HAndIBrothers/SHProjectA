@@ -36,7 +36,7 @@ public class App : MonoBehaviour
         Object.DontDestroyOnLoad(this.gameObject);
 
         // :: 매니저 등록
-        this.SetManager();
+        this.SetManagers();
 
         // :: 씬 로드
         this.oManagerScene.LoadScene(Enums.eScene.LOGO);
@@ -46,7 +46,9 @@ public class App : MonoBehaviour
     public ManagerScene oManagerScene = null;
     [HideInInspector]
     public ManagerRuler oManagerRuler = null;
-    private void SetManager()
+    [HideInInspector]
+    public ManagerStatus oManagerStatus = null;
+    private void SetManagers()
     {
         // :: 매니저
         GameObject goManager = Object.Instantiate<GameObject>(
@@ -58,5 +60,9 @@ public class App : MonoBehaviour
 
         // :: Ruler Manager
         this.oManagerRuler = goManager.AddComponent<ManagerRuler>();
+
+        // :: Status Manager
+        this.oManagerStatus = goManager.AddComponent<ManagerStatus>();
+        this.oManagerStatus.Init();
     }
 }
