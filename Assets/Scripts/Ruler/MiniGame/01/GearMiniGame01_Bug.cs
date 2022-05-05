@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GearMiniGame01_Bug : MonoBehaviour
 {
@@ -12,16 +13,28 @@ public class GearMiniGame01_Bug : MonoBehaviour
         this.transform.localPosition = new Vector2(x, y);
 
         // :: 좌표 지정 Close 지정
-        float disappearSecond = Random.Range(1f, _disappearSecond);
-        this.Close(disappearSecond);
+        //float disappearSecond = Random.Range(1f, _disappearSecond);
+        this.StartCoroutine(this.IENClose(_disappearSecond));
+
+        this.AddButtonScenario();
     }
-    private void Close(float _second)
+    private void Close()
     {
-        this.StartCoroutine(this.IENClose(_second));
+        Object.Destroy(this.gameObject);
     }
+
+    private void AddButtonScenario()
+    {
+        this.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            App.oInstance.oManagerRuler.oMiniGame01.AddScore();
+            this.Close();
+        });
+    }
+
     private IEnumerator IENClose(float _second)
     {
         yield return new WaitForSeconds(_second);
-        Object.Destroy(this.gameObject);
+        this.Close();
     }
 }
