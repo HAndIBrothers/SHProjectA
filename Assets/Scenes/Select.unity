@@ -2126,7 +2126,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1217670637}
-  - {fileID: 880226082054522556}
+  - {fileID: 6969286742379663340}
   - {fileID: 575383490}
   - {fileID: 864362346}
   m_Father: {fileID: 1352682887}
@@ -2374,9 +2374,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button_Programmer_INTJ
       objectReference: {fileID: 0}
+    - target: {fileID: 2277229273719559812, guid: 86c19d47dfc573b448ce34347d308986, type: 3}
+      propertyPath: oScene
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5342974371866548256, guid: 86c19d47dfc573b448ce34347d308986, type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7818479486416308566, guid: 86c19d47dfc573b448ce34347d308986, type: 3}
       propertyPath: m_Pivot.x
@@ -2462,9 +2466,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8564160618984090798, guid: 86c19d47dfc573b448ce34347d308986, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d08a61443859d747a9ec3b1d1b5116f, type: 2}
+    - target: {fileID: 8564471268997628160, guid: 86c19d47dfc573b448ce34347d308986, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d08a61443859d747a9ec3b1d1b5116f, type: 2}
+    - target: {fileID: 8590075412304291288, guid: 86c19d47dfc573b448ce34347d308986, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590505206778646140, guid: 86c19d47dfc573b448ce34347d308986, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86c19d47dfc573b448ce34347d308986, type: 3}
---- !u!224 &880226082054522556 stripped
+--- !u!224 &6969286742379663340 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7818479486416308566, guid: 86c19d47dfc573b448ce34347d308986, type: 3}
   m_PrefabInstance: {fileID: 880226082054522554}
