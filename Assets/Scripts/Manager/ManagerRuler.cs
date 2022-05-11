@@ -45,4 +45,9 @@ public class ManagerRuler : MonoBehaviour
     {
         this.oMiniGame01 = _ruler;
     }
+    public RulerMiniGame02 oMiniGame02 = null;
+    public void SetRuler_MiniGame02(RulerMiniGame02 _ruler)
+    {
+        this.oMiniGame02 = _ruler;
+    }
 }
