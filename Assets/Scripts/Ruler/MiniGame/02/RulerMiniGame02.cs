@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RulerMiniGame02 : Ruler
+public class RulerMiniGame02 : SHRuler
 {
     public override void Init()
     {
@@ -11,6 +11,11 @@ public class RulerMiniGame02 : Ruler
 
         // :: UI ¼³Á¤
         this.oUIMiniGame02.Init();
+    }
+
+    public void StartGame()
+    {
+        this.oUIMiniGame02.Start_SpawnBugs();
     }
 
     // :: UI

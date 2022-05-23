@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ManagerRuler : MonoBehaviour
+public class ManagerRuler : SHManager
 {
     // :: ·Î°í
     public RulerLogo oLogo = null;

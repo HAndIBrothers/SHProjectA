@@ -1682,6 +1682,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a928345b3ec39ab44b502cb1f0f33d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oSECTION_Bug: {fileID: 1840093134}
+  PREFAB_Bug: {fileID: 4020746984395377356, guid: 3fd581aae0abcbe4e819dabff2529b15, type: 3}
+  BUTTON_Start: {fileID: 1570529246}
 --- !u!114 &1402263715
 MonoBehaviour:
   m_ObjectHideFlags: 0

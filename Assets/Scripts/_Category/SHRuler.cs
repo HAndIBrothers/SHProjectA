@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Ruler : MonoBehaviour
+public abstract class SHRuler : SHBehaviour
 {
     private void Awake()
     {
         App.CheckApp();
     }
-
-    public abstract void Init();
 }

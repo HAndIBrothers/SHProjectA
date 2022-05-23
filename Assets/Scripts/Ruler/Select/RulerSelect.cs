@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RulerSelect : Ruler
+public class RulerSelect : SHRuler
 {
     public override void Init()
     {

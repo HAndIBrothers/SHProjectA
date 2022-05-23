@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class App : MonoBehaviour
+public class App : SHBehaviour
 {
     private static App iInstance = null;
     public static App oInstance
@@ -50,19 +50,19 @@ public class App : MonoBehaviour
     public ManagerStatus oManagerStatus = null;
     private void SetManagers()
     {
-        // :: ¸Å´ÏÀú
+        // :: Manager GO
         GameObject goManager = Object.Instantiate<GameObject>(
             new GameObject(), this.transform);
         goManager.name = "Managers";
 
-        // :: Scene Manager
-        this.oManagerScene = goManager.AddComponent<ManagerScene>();
-
-        // :: Ruler Manager
-        this.oManagerRuler = goManager.AddComponent<ManagerRuler>();
-
-        // :: Status Manager
-        this.oManagerStatus = goManager.AddComponent<ManagerStatus>();
-        this.oManagerStatus.Init();
+        // :: Set Managers
+        this.SetManager<ManagerScene>(goManager);
+        this.SetManager<ManagerRuler>(goManager);
+        this.SetManager<ManagerStatus>(goManager);
+    }
+    private void SetManager<T>(GameObject goManager) where T: SHManager
+    {
+        var manager = goManager.AddComponent<T>();
+        manager.Init();
     }
 }

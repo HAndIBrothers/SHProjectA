@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 
-public class ManagerScene : MonoBehaviour
+public class ManagerScene : SHManager
 {
     // :: Load App
     public static void LoadApp()
@@ -25,7 +25,7 @@ public class ManagerScene : MonoBehaviour
             if(_ele.isDone)
             {
                 // :: Init Ruler
-                GameObject.FindObjectOfType<Ruler>().Init();
+                GameObject.FindObjectOfType<SHRuler>().Init();
             }
         };
     }

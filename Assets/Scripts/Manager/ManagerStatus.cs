@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ManagerStatus : MonoBehaviour
+public class ManagerStatus : SHManager
 {
-    public void Init()
+    public override void Init()
     {
         this.ResetMoney();
     }

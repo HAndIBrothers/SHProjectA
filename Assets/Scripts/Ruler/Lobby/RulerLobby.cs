@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RulerLobby : Ruler
+public class RulerLobby : SHRuler
 {
     public override void Init()
     {
