@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIMiniGame01 : MonoBehaviour
+public class UIMiniGame01 : SHUI
 {
-    public void Init()
+    private RulerMiniGame01 iRuler;
+    public override void Init(SHRuler _ruler)
     {
+        // :: 룰러 설정
+        this.iRuler = (RulerMiniGame01)_ruler;
+
         this.AddButtonScenario_Start();
 
         // :: Init
@@ -39,10 +43,6 @@ public class UIMiniGame01 : MonoBehaviour
         App.oInstance.oManagerRuler.oMiniGame01
             .StopCoroutine(this.iCoroutine_SpawnBugs);
     }
-    [Range(1f, 5f)]
-    public float oRespawnSecond = 1f;
-    [Range(1f, 5f)]
-    public float oDisappearSecond = 1f;
     private IEnumerator IENSpawnBugs()
     {
         // :: 초기화
@@ -64,11 +64,16 @@ public class UIMiniGame01 : MonoBehaviour
             // :: 랜덤 이미지
             float randX = this.iWidth_SectionBug / 2f;
             float randY = this.iHeight_SectionBug / 2f;
-            gearBug.Open(randX, randY, this.oDisappearSecond);
+            gearBug.Open(randX, randY, this.iRuler.oData.oDisappearTime);
 
-            // :: 랜덤
-            //float waitRandom = Random.Range(0f, this.oRespawnSecond);
-            yield return new WaitForSeconds(this.oRespawnSecond);
+            // :: 재생성 시간
+            float respawnSeconds = this.iRuler.oData.oRespawnTime;
+            if(this.iRuler.oData.oRandomRespawn)
+            {
+                respawnSeconds = Random.Range(this.iRuler.oData.oRespawnTime_Min,
+                    this.iRuler.oData.oRespawnTime_Max);
+            }
+            yield return new WaitForSeconds(respawnSeconds);
         }
     }
 

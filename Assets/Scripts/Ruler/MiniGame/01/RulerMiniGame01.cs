@@ -10,7 +10,7 @@ public class RulerMiniGame01 : SHRuler
         App.oInstance.oManagerRuler.SetRuler_MiniGame01(this);
 
         // :: UI 설정
-        this.oUI.Init();
+        this.oUI.Init(this);
 
         // :: 수치 초기화
         this.ResetStatus();
@@ -49,8 +49,6 @@ public class RulerMiniGame01 : SHRuler
             }));
     }
     [Header("Time")]
-    [Range(1, 120)]
-    public int oInputRemainingTime = 30;
     private float iRemainingTime;
     public int oRemainingTime {
         get
@@ -60,7 +58,7 @@ public class RulerMiniGame01 : SHRuler
     }
     private void ResetRemainingTime()
     {
-        this.iRemainingTime = this.oInputRemainingTime + 1;
+        this.iRemainingTime = this.oData.oGamePlaySeconds + 1;
     }
     private IEnumerator IENStartTime(System.Action _afterAction = null)
     {
@@ -86,6 +84,9 @@ public class RulerMiniGame01 : SHRuler
     [Header("UI")]
     public UIMiniGame01 oUI;
 
+    [Header("Data")]
+    public GearMiniGame01_Data oData;
+
     // :: Prefab
     [Header("Prefab")]
     public GameObject oPREFAB_Bug;
@@ -93,11 +94,6 @@ public class RulerMiniGame01 : SHRuler
     // :: Score
     private int iScore;
     public int oScore => this.iScore;
-    [Header("Score")]
-    [Range(1, 1000)]
-    public int oAddScore = 1;
-    [Range(1, 10)]
-    public float oMultiplyMoneyAndScore = 1;
     public void ResetScore()
     {
         this.iScore = 0;
@@ -105,7 +101,7 @@ public class RulerMiniGame01 : SHRuler
     }
     public void AddScore()
     {
-        this.iScore += this.oAddScore;
+        this.iScore += this.oData.oAddScore;
         this.oUI.UpdateScore();
     }
 }

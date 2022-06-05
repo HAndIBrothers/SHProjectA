@@ -658,10 +658,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c17f6ee119b54447ac4901888c543b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oInputRemainingTime: 5
   oUI: {fileID: 1402263714}
+  oData: {fileID: 1888174236}
   oPREFAB_Bug: {fileID: 4020746984395377356, guid: 4d3d9e718aeca144f8facd3960ffc08e, type: 3}
-  oAddScore: 100
   oMultiplyMoneyAndScore: 1
 --- !u!1 &662904187
 GameObject:
@@ -2309,6 +2308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c680a5e5ad34acc44819cd477eccb340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oGamePlaySeconds: 5
+  oAddScore: 100
 --- !u!4 &1888174237
 Transform:
   m_ObjectHideFlags: 0
@@ -2317,7 +2318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1888174235}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.35634857, y: 0.5477425, z: 89.56977}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

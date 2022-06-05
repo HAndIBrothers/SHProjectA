@@ -10,7 +10,7 @@ public class RulerMiniGame02 : SHRuler
         App.oInstance.oManagerRuler.SetRuler_MiniGame02(this);
 
         // :: UI ¼³Á¤
-        this.oUI.Init();
+        this.oUI.Init(this);
     }
 
     public void StartGame()

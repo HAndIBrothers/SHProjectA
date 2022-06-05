@@ -25,7 +25,7 @@ public class GearMiniGame01_Result : MonoBehaviour
             ruler.oScore));
         // :: Log : 기본금
         int addMoney = Mathf.FloorToInt(
-            ruler.oScore * ruler.oMultiplyMoneyAndScore);
+            ruler.oScore * ruler.oData.oAddScore);
         this.OpenLog(null, string.Format("월급으로 {0} 원이 입금되었습니다.",
             addMoney));
         // :: Log : 추가금 : 공식 현재 없음
