@@ -10,7 +10,7 @@ public class RulerMiniGame01 : SHRuler
         App.oInstance.oManagerRuler.SetRuler_MiniGame01(this);
 
         // :: UI 설정
-        this.oUIMiniGame01.Init();
+        this.oUI.Init();
 
         // :: 수치 초기화
         this.ResetStatus();
@@ -27,14 +27,14 @@ public class RulerMiniGame01 : SHRuler
     {
         this.ResetStatus();
 
-        this.oUIMiniGame01.CloseResult();
-        this.oUIMiniGame01.ShowButton_Start();
+        this.oUI.CloseResult();
+        this.oUI.ShowButton_Start();
     }
 
     private Coroutine iCoroutine_StartTime = null;
     public void StartGame()
     {
-        this.oUIMiniGame01.Start_SpawnBugs();
+        this.oUI.Start_SpawnBugs();
 
         if(this.iCoroutine_StartTime != null)
         {
@@ -43,8 +43,8 @@ public class RulerMiniGame01 : SHRuler
         }
         this.iCoroutine_StartTime =
             this.StartCoroutine(this.IENStartTime(() => {
-                this.oUIMiniGame01.OpenResult(); // : 결과 표시
-                this.oUIMiniGame01.Stop_SpawnBugs(); 
+                this.oUI.OpenResult(); // : 결과 표시
+                this.oUI.Stop_SpawnBugs(); 
                 // : 더 이상 버그 생성하지 않음
             }));
     }
@@ -70,13 +70,13 @@ public class RulerMiniGame01 : SHRuler
             this.iRemainingTime -= Time.deltaTime;
 
             // :: 남은 시간
-            this.oUIMiniGame01.UpdateRemainingTime();
+            this.oUI.UpdateRemainingTime();
             yield return null;
         }
 
         // :: 0으로 설정
         this.iRemainingTime = 0;
-        this.oUIMiniGame01.UpdateRemainingTime();
+        this.oUI.UpdateRemainingTime();
 
         // :: 다음 액션 실행
         _afterAction?.Invoke();
@@ -84,7 +84,11 @@ public class RulerMiniGame01 : SHRuler
 
     // :: UI
     [Header("UI")]
-    public UIMiniGame01 oUIMiniGame01;
+    public UIMiniGame01 oUI;
+
+    // :: Prefab
+    [Header("Prefab")]
+    public GameObject oPREFAB_Bug;
 
     // :: Score
     private int iScore;
@@ -97,11 +101,11 @@ public class RulerMiniGame01 : SHRuler
     public void ResetScore()
     {
         this.iScore = 0;
-        this.oUIMiniGame01.UpdateScore();
+        this.oUI.UpdateScore();
     }
     public void AddScore()
     {
         this.iScore += this.oAddScore;
-        this.oUIMiniGame01.UpdateScore();
+        this.oUI.UpdateScore();
     }
 }

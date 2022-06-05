@@ -58,6 +58,8 @@ public class UIMiniGame02 : MonoBehaviour
             float randY = this.iHeight_SectionBug / 2f;
             gearBug.Open(randX, randY);
 
+            Debug.LogWarning("Aaaa");
+
             // :: ·£´ý
             //float waitRandom = Random.Range(0f, this.oRespawnSecond);
             yield return new WaitForSeconds(1);

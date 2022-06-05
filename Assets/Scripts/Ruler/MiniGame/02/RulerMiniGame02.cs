@@ -10,15 +10,15 @@ public class RulerMiniGame02 : SHRuler
         App.oInstance.oManagerRuler.SetRuler_MiniGame02(this);
 
         // :: UI ¼³Á¤
-        this.oUIMiniGame02.Init();
+        this.oUI.Init();
     }
 
     public void StartGame()
     {
-        this.oUIMiniGame02.Start_SpawnBugs();
+        this.oUI.Start_SpawnBugs();
     }
 
     // :: UI
     [Header("UI")]
-    public UIMiniGame02 oUIMiniGame02;
+    public UIMiniGame02 oUI;
 }

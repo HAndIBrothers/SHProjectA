@@ -765,7 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2793f70887af64bade7b76b6d3e12f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oUIMiniGame02: {fileID: 1402263714}
+  oUI: {fileID: 1402263714}
 --- !u!1 &662904187
 GameObject:
   m_ObjectHideFlags: 0

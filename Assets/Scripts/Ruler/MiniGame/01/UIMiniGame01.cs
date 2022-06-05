@@ -28,7 +28,6 @@ public class UIMiniGame01 : MonoBehaviour
         this.iWidth_SectionBug = rect.width;
         this.iHeight_SectionBug = rect.height;
     }
-    public GameObject PREFAB_Bug;
     private Coroutine iCoroutine_SpawnBugs;
     public void Start_SpawnBugs()
     {
@@ -57,7 +56,8 @@ public class UIMiniGame01 : MonoBehaviour
             // :: ±â¾î Å½»ö
             GameObject goBug 
                 = Object.Instantiate<GameObject>(
-                    this.PREFAB_Bug, this.oSECTION_Bug.transform);
+                    App.oInstance.oManagerRuler.oMiniGame01.oPREFAB_Bug, 
+                    this.oSECTION_Bug.transform);
             GearMiniGame01_Bug gearBug
                 = goBug.GetComponent<GearMiniGame01_Bug>();
 

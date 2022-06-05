@@ -42,12 +42,10 @@ public class App : SHBehaviour
         this.oManagerScene.LoadScene(Enums.eScene.LOGO);
     }
 
-    [HideInInspector]
-    public ManagerScene oManagerScene = null;
-    [HideInInspector]
-    public ManagerRuler oManagerRuler = null;
-    [HideInInspector]
-    public ManagerStatus oManagerStatus = null;
+    public ManagerScene oManagerScene { get; private set; }
+    public ManagerRuler oManagerRuler { get; private set; }
+    public ManagerStatus oManagerStatus { get; private set; }
+    public ManagerData oManagerData { get; private set; }
     private void SetManagers()
     {
         // :: Manager GO
@@ -56,13 +54,16 @@ public class App : SHBehaviour
         goManager.name = "Managers";
 
         // :: Set Managers
-        this.SetManager<ManagerScene>(goManager);
-        this.SetManager<ManagerRuler>(goManager);
-        this.SetManager<ManagerStatus>(goManager);
+        this.oManagerScene = this.SetManager<ManagerScene>(goManager);
+        this.oManagerRuler = this.SetManager<ManagerRuler>(goManager);
+        this.oManagerStatus = this.SetManager<ManagerStatus>(goManager);
+        this.oManagerData = this.SetManager<ManagerData>(goManager);
     }
-    private void SetManager<T>(GameObject goManager) where T: SHManager
+    private T SetManager<T>(GameObject goManager) where T: SHManager
     {
         var manager = goManager.AddComponent<T>();
         manager.Init();
+
+        return manager;
     }
 }
