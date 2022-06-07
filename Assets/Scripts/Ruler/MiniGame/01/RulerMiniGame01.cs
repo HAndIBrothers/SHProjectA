@@ -6,13 +6,13 @@ public class RulerMiniGame01 : SHRuler
 {
     public override void Init()
     {
-        // :: ·ê·¯ ¼³Á¤
+        // :: ë£°ëŸ¬ ì„¤ì •
         App.oInstance.oManagerRuler.SetRuler_MiniGame01(this);
 
-        // :: UI ¼³Á¤
+        // :: UI ì„¤ì •
         this.oUI.Init(this);
 
-        // :: ¼öÄ¡ ÃÊ±âÈ­
+        // :: ìˆ˜ì¹˜ ì´ˆê¸°í™”
         this.ResetStatus();
     }
 
@@ -43,9 +43,9 @@ public class RulerMiniGame01 : SHRuler
         }
         this.iCoroutine_StartTime =
             this.StartCoroutine(this.IENStartTime(() => {
-                this.oUI.OpenResult(); // : °á°ú Ç¥½Ã
+                this.oUI.OpenResult(); // : ê²°ê³¼ í‘œì‹œ
                 this.oUI.Stop_SpawnBugs(); 
-                // : ´õ ÀÌ»ó ¹ö±× »ı¼ºÇÏÁö ¾ÊÀ½
+                // : ë” ì´ìƒ ë²„ê·¸ ìƒì„±í•˜ì§€ ì•ŠìŒ
             }));
     }
     [Header("Time")]
@@ -64,19 +64,19 @@ public class RulerMiniGame01 : SHRuler
     {
         while(this.iRemainingTime > 0)
         {
-            // :: ½Ã°£ ´©Àû
+            // :: ì‹œê°„ ëˆ„ì 
             this.iRemainingTime -= Time.deltaTime;
 
-            // :: ³²Àº ½Ã°£
+            // :: ë‚¨ì€ ì‹œê°„
             this.oUI.UpdateRemainingTime();
             yield return null;
         }
 
-        // :: 0À¸·Î ¼³Á¤
+        // :: 0ìœ¼ë¡œ ì„¤ì •
         this.iRemainingTime = 0;
         this.oUI.UpdateRemainingTime();
 
-        // :: ´ÙÀ½ ¾×¼Ç ½ÇÇà
+        // :: ë‹¤ìŒ ì•¡ì…˜ ì‹¤í–‰
         _afterAction?.Invoke();
     }
 

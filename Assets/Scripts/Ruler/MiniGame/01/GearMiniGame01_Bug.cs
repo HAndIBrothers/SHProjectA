@@ -7,16 +7,16 @@ public class GearMiniGame01_Bug : MonoBehaviour
 {
     public void Open(float _x, float _y, float _disappearSecond)
     {
-        // :: À§Ä¡ ÁöÁ¤
+        // :: ìœ„ì¹˜ ì§€ì •
         float x = Random.Range(-_x, _x);
         float y = Random.Range(-_y, _y);
         this.transform.localPosition = new Vector2(x, y);
 
-        // :: ÁÂÇ¥ ÁöÁ¤ Close ÁöÁ¤
+        // :: ì¢Œí‘œ ì§€ì • Close ì§€ì •
         //float disappearSecond = Random.Range(1f, _disappearSecond);
         this.StartCoroutine(this.IENClose(_disappearSecond));
 
-        // :: ·£´ı ÁÂÇ¥ ÁöÁ¤
+        // :: ëœë¤ ì¢Œí‘œ ì§€ì •
         float randX = Random.Range(-_x, _x);
         float randY = Random.Range(-_y, _y);
         this.StartCoroutine(this.IENMove(new Vector2(randX, randY)));

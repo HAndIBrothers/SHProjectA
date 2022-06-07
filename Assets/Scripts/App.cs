@@ -24,21 +24,21 @@ public class App : SHBehaviour
 
     private void Awake()
     {
-        // :: EXIT : ¿ÀºêÁ§Æ® Áßº¹ÀÏ °æ¿ì
+        // :: EXIT : ì˜¤ë¸Œì íŠ¸ ì¤‘ë³µì¼ ê²½ìš°
         var go = GameObject.FindObjectOfType<App>().gameObject;
         if(go.GetHashCode() != this.gameObject.GetHashCode())
         {
             return;
         }
 
-        // :: ¿ÀºêÁ§Æ® ÀÔ·Â
+        // :: ì˜¤ë¸Œì íŠ¸ ì…ë ¥
         iInstance = this;
         Object.DontDestroyOnLoad(this.gameObject);
 
-        // :: ¸Å´ÏÀú µî·Ï
+        // :: ë§¤ë‹ˆì € ë“±ë¡
         this.SetManagers();
 
-        // :: ¾À ·Îµå
+        // :: ì”¬ ë¡œë“œ
         this.oManagerScene.LoadScene(Enums.eScene.LOGO);
     }
 

@@ -8,20 +8,20 @@ public class UIMiniGame01 : SHUI
     private RulerMiniGame01 iRuler;
     public override void Init(SHRuler _ruler)
     {
-        // :: ·ê·¯ ¼³Á¤
+        // :: ë£°ëŸ¬ ì„¤ì •
         this.iRuler = (RulerMiniGame01)_ruler;
 
         this.AddButtonScenario_Start();
 
         // :: Init
         this.Init_SectionBug();
-        this.oGEAR_Result.Init(); // : °á°ú ÃÊ±âÈ­
+        this.oGEAR_Result.Init(); // : ê²°ê³¼ ì´ˆê¸°í™”
 
-        // :: °á°úÃ¢ ¼û±â±â
+        // :: ê²°ê³¼ì°½ ìˆ¨ê¸°ê¸°
         this.CloseResult();
     }
 
-    // :: ¹ö±×
+    // :: ë²„ê·¸
     [Header("Section")]
     public GameObject oSECTION_Bug;
     private float iWidth_SectionBug;
@@ -45,7 +45,7 @@ public class UIMiniGame01 : SHUI
     }
     private IEnumerator IENSpawnBugs()
     {
-        // :: ÃÊ±âÈ­
+        // :: ì´ˆê¸°í™”
         while(this.oSECTION_Bug.transform.childCount > 0)
         {
             Object.Destroy(this.oSECTION_Bug.transform.GetChild(0).gameObject);
@@ -53,7 +53,7 @@ public class UIMiniGame01 : SHUI
 
         while(true)
         {
-            // :: ±â¾î Å½»ö
+            // :: ê¸°ì–´ íƒìƒ‰
             GameObject goBug 
                 = Object.Instantiate<GameObject>(
                     App.oInstance.oManagerRuler.oMiniGame01.oPREFAB_Bug, 
@@ -61,12 +61,12 @@ public class UIMiniGame01 : SHUI
             GearMiniGame01_Bug gearBug
                 = goBug.GetComponent<GearMiniGame01_Bug>();
 
-            // :: ·£´ı ÀÌ¹ÌÁö
+            // :: ëœë¤ ì´ë¯¸ì§€
             float randX = this.iWidth_SectionBug / 2f;
             float randY = this.iHeight_SectionBug / 2f;
             gearBug.Open(randX, randY, this.iRuler.oData.oDisappearTime);
 
-            // :: Àç»ı¼º ½Ã°£
+            // :: ì¬ìƒì„± ì‹œê°„
             float respawnSeconds = this.iRuler.oData.oRespawnTime;
             if(this.iRuler.oData.oRandomRespawn)
             {
@@ -77,7 +77,7 @@ public class UIMiniGame01 : SHUI
         }
     }
 
-    // :: ¹öÆ°
+    // :: ë²„íŠ¼
     [Header("Button")]
     public Button BUTTON_Start;
     public void ShowButton_Start()

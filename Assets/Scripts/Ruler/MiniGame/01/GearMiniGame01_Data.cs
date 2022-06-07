@@ -5,16 +5,16 @@ using UnityEditor;
 
 public class GearMiniGame01_Data : SHData
 {
-    // :: °ÔÀÓ ÇÃ·¹ÀÌ ½Ã°£(ÃÊ)
+    // :: ê²Œì„ í”Œë ˆì´ ì‹œê°„(ì´ˆ)
     public int oGamePlaySeconds = 30;
 
-    // :: Àç»ı¼º °ü·Ã
+    // :: ì¬ìƒì„± ê´€ë ¨
     public bool oRandomRespawn = false;
     public float oRespawnTime = 1f;
     public float oRespawnTime_Min = 0.5f;
     public float oRespawnTime_Max = 2f;
     public float oDisappearTime = 2f;
 
-    // :: Å¬¸¯´ç Á¡¼ö
+    // :: í´ë¦­ë‹¹ ì ìˆ˜
     public int oAddScore = 100;
 }
