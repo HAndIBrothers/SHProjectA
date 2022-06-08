@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GearMiniGame01_Result : MonoBehaviour
+public class GearMiniGame_Result : MonoBehaviour
 {
     public void Init()
     {
@@ -18,33 +18,33 @@ public class GearMiniGame01_Result : MonoBehaviour
     private IEnumerator IENOpen()
     {
         var ruler = App.oInstance.oManagerRuler.oMiniGame01;
-        // :: Log : ÃàÇÏ
-        this.OpenLog(null, "°³¹ßÀÚ´Â ¸ÚÁö°Ô ¹ö±×¸¦ Àâ¾Ò½À´Ï´Ù.");
-        // :: Log : ÃàÇÏ
-        this.OpenLog(null, string.Format("ÃÑ {0} Á¡ÀÇ Á¡¼ö¸¦ ¾ò¾ú½À´Ï´Ù.",
+        // :: Log : ì¶•í•˜
+        this.OpenLog(null, "ê°œë°œìëŠ” ë©‹ì§€ê²Œ ë²„ê·¸ë¥¼ ì¡ì•˜ìŠµë‹ˆë‹¤.");
+        // :: Log : ì¶•í•˜
+        this.OpenLog(null, string.Format("ì´ {0} ì ì˜ ì ìˆ˜ë¥¼ ì–»ì—ˆìŠµë‹ˆë‹¤.",
             ruler.oScore));
-        // :: Log : ±âº»±İ
+        // :: Log : ê¸°ë³¸ê¸ˆ
         int addMoney = Mathf.FloorToInt(
             ruler.oScore * ruler.oData.oAddScore);
-        this.OpenLog(null, string.Format("¿ù±ŞÀ¸·Î {0} ¿øÀÌ ÀÔ±İµÇ¾ú½À´Ï´Ù.",
+        this.OpenLog(null, string.Format("ì›”ê¸‰ìœ¼ë¡œ {0} ì›ì´ ì…ê¸ˆë˜ì—ˆìŠµë‹ˆë‹¤.",
             addMoney));
-        // :: Log : Ãß°¡±İ : °ø½Ä ÇöÀç ¾øÀ½
+        // :: Log : ì¶”ê°€ê¸ˆ : ê³µì‹ í˜„ì¬ ì—†ìŒ
         int extraMoney = Mathf.FloorToInt(ruler.oScore / 500) * 100;
-        this.OpenLog(null, string.Format("Ãß°¡ ¼ö´ç {0} ¿øÀÌ ´õ µé¾î¿Ô½À´Ï´Ù.",
+        this.OpenLog(null, string.Format("ì¶”ê°€ ìˆ˜ë‹¹ {0} ì›ì´ ë” ë“¤ì–´ì™”ìŠµë‹ˆë‹¤.",
             extraMoney));
-        // :: Log : ÃÑ ±İ¾×
+        // :: Log : ì´ ê¸ˆì•¡
         int allMoney = addMoney + extraMoney;
-        this.OpenLog(null, string.Format("ÅëÀå¿¡ ÃÑ {0} ¿øÀÌ ÀÔ±İµÇ¾ú±º¿ä.",
+        this.OpenLog(null, string.Format("í†µì¥ì— ì´ {0} ì›ì´ ì…ê¸ˆë˜ì—ˆêµ°ìš”.",
             allMoney));
-        App.oInstance.oManagerStatus.AddMoney(allMoney); // : ½ÇÁ¦ Ãß°¡
-        // :: Log : ¸¶Áö¸· ¹®±¸
-        this.OpenLog(null, "°³¹ßÀÚ´Â Á¤¸»·Î Çàº¹ÇØÁ³½À´Ï´Ù!");
+        App.oInstance.oManagerStatus.AddMoney(allMoney); // : ì‹¤ì œ ì¶”ê°€
+        // :: Log : ë§ˆì§€ë§‰ ë¬¸êµ¬
+        this.OpenLog(null, "ê°œë°œìëŠ” ì •ë§ë¡œ í–‰ë³µí•´ì¡ŒìŠµë‹ˆë‹¤!");
 
         yield break;
     }
     public void Close()
     {
-        // :: Log ÃÊ±âÈ­
+        // :: Log ì´ˆê¸°í™”
         while (this.oTRANSFORM_Logs.childCount > 0)
         {
             Object.DestroyImmediate(
@@ -60,13 +60,13 @@ public class GearMiniGame01_Result : MonoBehaviour
     public GameObject PREFAB_Log;
     private void OpenLog(Sprite _sprite, string _text)
     {
-        // :: »ı¼º
+        // :: ìƒì„±
         var goLog = Object.Instantiate<GameObject>(
             this.PREFAB_Log, this.oTRANSFORM_Logs);
-        goLog.transform.SetAsLastSibling(); // : ¸¶Áö¸·À¸·Î º¸³»±â
+        goLog.transform.SetAsLastSibling(); // : ë§ˆì§€ë§‰ìœ¼ë¡œ ë³´ë‚´ê¸°
 
-        // :: ¿ÀÇÂ
-        goLog.GetComponent<GearMiniGame01_Result_Log>().Open(_sprite, _text);
+        // :: ì˜¤í”ˆ
+        goLog.GetComponent<GearMiniGame_Result_Log>().Open(_sprite, _text);
     }
 
     // :: Buttons

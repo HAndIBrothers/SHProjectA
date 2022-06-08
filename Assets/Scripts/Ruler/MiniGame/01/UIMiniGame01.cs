@@ -51,6 +51,8 @@ public class UIMiniGame01 : SHUI
             Object.Destroy(this.oSECTION_Bug.transform.GetChild(0).gameObject);
         }
 
+        Debug.LogWarning("Note!");
+
         while(true)
         {
             // :: ±â¾î Å½»ö
@@ -119,7 +121,7 @@ public class UIMiniGame01 : SHUI
 
     // :: Result
     [Header("Result")]
-    public GearMiniGame01_Result oGEAR_Result;
+    public GearMiniGame_Result oGEAR_Result;
     public void OpenResult()
     {
         this.oGEAR_Result.Open();

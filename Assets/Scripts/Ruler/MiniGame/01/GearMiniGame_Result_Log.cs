@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GearMiniGame01_Result_Log : MonoBehaviour
+public class GearMiniGame_Result_Log : MonoBehaviour
 {
     public Image oIMAGE_Emoticon;
     public Text oTEXT_Log;

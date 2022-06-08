@@ -8,13 +8,14 @@ public class UIMiniGame02 : SHUI
     private RulerMiniGame02 iRuler;
     public override void Init(SHRuler _ruler)
     {
-        // :: ·ê·¯
+        // :: ë£°ëŸ¬
         this.iRuler = (RulerMiniGame02)_ruler;
 
-        // :: ÃÊ±âÈ­
+        // :: ì´ˆê¸°í™”
+        this.InitHearts();
         this.ShowButton_Start(true);
 
-        // :: ¹öÆ° ½Ã³ª¸®¿À
+        // :: ë²„íŠ¼ ì‹œë‚˜ë¦¬ì˜¤
         this.AddButtonScenario_Start();
         this.AddButtonScenario_Controller();
     }
@@ -35,13 +36,13 @@ public class UIMiniGame02 : SHUI
     }
     private IEnumerator IENSpawnBugs()
     {
-        // :: ÃÊ±âÈ­
+        // :: ì´ˆê¸°í™”
         while (this.oSECTION_Bug.transform.childCount > 0)
         {
             Object.Destroy(this.oSECTION_Bug.transform.GetChild(0).gameObject);
         }
 
-        // :: ½ºÅ©¸° »çÀÌÁî È®ÀÎ
+        // :: ìŠ¤í¬ë¦° ì‚¬ì´ì¦ˆ í™•ì¸
         Rect rect = this.oSECTION_Bug.GetComponent<RectTransform>().rect;
         float yPosition = rect.height / 2;
         yPosition += 300;
@@ -49,23 +50,23 @@ public class UIMiniGame02 : SHUI
 
         while (true)
         {
-            // :: ±â¾î Å½»ö
+            // :: ê¸°ì–´ íƒìƒ‰
             GameObject goBug
                 = Object.Instantiate<GameObject>(
                     this.PREFAB_Bug, this.oSECTION_Bug.transform);
             GearMiniGame02_Bug gearBug
                 = goBug.GetComponent<GearMiniGame02_Bug>();
 
-            // :: ·£´ı ÀÌ¹ÌÁö
+            // :: ëœë¤ ì´ë¯¸ì§€
             float randX = Random.Range(-xPosition, xPosition);
             gearBug.Open(randX, yPosition);
 
-            // :: ·£´ı
+            // :: ëœë¤
             yield return new WaitForSeconds(0.5f);
         }
     }
 
-    [Header("¹öÆ°")]
+    [Header("ë²„íŠ¼")]
     public Button BUTTON_Start;
     private void ShowButton_Start(bool _check)
     {
@@ -79,7 +80,7 @@ public class UIMiniGame02 : SHUI
             this.ShowButton_Start(false);
         });
     }
-    [Header("ÄÁÆ®·Ñ·¯")]
+    [Header("ì»¨íŠ¸ë¡¤ëŸ¬")]
     public Image IMAGE_Player;
     public GearMiniGame02_Controller BUTTON_Left;
     public GearMiniGame02_Controller BUTTON_Right;
@@ -127,12 +128,12 @@ public class UIMiniGame02 : SHUI
     private float iSizeHalf = 0;
     private void AddButtonScenario_Controller()
     {
-        // :: »çÀÌÁî µî·Ï
+        // :: ì‚¬ì´ì¦ˆ ë“±ë¡
         Transform parent = this.IMAGE_Player.transform.parent;
         this.iSizeHalf 
             = parent.GetComponent<RectTransform>().rect.width / 2;
 
-        // :: Left ÄÁÆ®·Ñ·¯
+        // :: Left ì»¨íŠ¸ë¡¤ëŸ¬
         this.BUTTON_Left.Init(() =>
         {
             this.iCoroutine_LeftAction 
@@ -146,7 +147,7 @@ public class UIMiniGame02 : SHUI
             }
         });
 
-        // :: Right ÄÁÆ®·Ñ·¯
+        // :: Right ì»¨íŠ¸ë¡¤ëŸ¬
         this.BUTTON_Right.Init(() =>
         {
             this.iCoroutine_RightAction
@@ -159,5 +160,35 @@ public class UIMiniGame02 : SHUI
                 this.iCoroutine_RightAction = null;
             }
         });
+    }
+
+    [Header("Hearts")]
+    [SerializeField]
+    private Transform SECTION_Hearts;
+    private GameObject[] iHearts;
+    private void InitHearts()
+    {
+        // :: í•˜íŠ¸ ì´ˆê¸°í™”
+        this.iHearts = new GameObject[this.SECTION_Hearts.childCount];
+        for (int index = 0; index < this.SECTION_Hearts.childCount; index++)
+        {
+            this.iHearts[index] = this.SECTION_Hearts.GetChild(index).gameObject;
+        }
+    }
+    public void ShowHeart_Current()
+    {
+        this.HideHeartAll();
+        for(int index = 0; index < this.iRuler.oHeart; index++)
+        {
+            this.iHearts[index].gameObject.SetActive(true);
+        }
+    }
+    private void HideHeartAll()
+    {
+        // :: ìˆ¨ê¸°ê¸°
+        foreach (GameObject heart in this.iHearts)
+        {
+            heart.gameObject.SetActive(false);
+        }
     }
 }

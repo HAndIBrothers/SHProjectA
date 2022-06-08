@@ -4,21 +4,31 @@ using UnityEngine;
 
 public class RulerMiniGame02 : SHRuler
 {
+    [Header("Heart")]
+    [SerializeField]
+    private GameObject PREFAB_Heart;
+    public int oHeart { get; private set; } = 3;
+    public void HitHeart() { 
+        this.oHeart -= 1;
+        if (this.oHeart < 0) this.oHeart = 0;
+        this.oUI.ShowHeart_Current();
+    }
     public override void Init()
     {
-        // :: ·ê·¯ ¼³Á¤
+        // :: ë£°ëŸ¬ ì„¤ì •
         App.oInstance.oManagerRuler.SetRuler_MiniGame02(this);
-
-        // :: UI ¼³Á¤
+        // :: UI ì„¤ì •
         this.oUI.Init(this);
-    }
-
-    public void StartGame()
-    {
-        this.oUI.Start_SpawnBugs();
     }
 
     // :: UI
     [Header("UI")]
-    public UIMiniGame02 oUI;
+    [SerializeField]
+    private UIMiniGame02 oUI;
+    public void StartGame()
+    {
+        this.oUI.ShowHeart_Current();
+        this.oUI.Start_SpawnBugs();
+    }
+
 }
