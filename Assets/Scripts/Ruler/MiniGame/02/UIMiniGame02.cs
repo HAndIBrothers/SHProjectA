@@ -14,6 +14,7 @@ public class UIMiniGame02 : SHUI
         // :: 초기화
         this.InitHearts();
         this.ShowButton_Start(true);
+        this.oGEAR_Result.Init();
 
         // :: 버튼 시나리오
         this.AddButtonScenario_Start();
@@ -191,4 +192,16 @@ public class UIMiniGame02 : SHUI
             heart.gameObject.SetActive(false);
         }
     }
+
+    [Header("Texts")]
+    [SerializeField]
+    private Text TEXT_Score;
+    public void ShowScore()
+    {
+        this.TEXT_Score.text = this.iRuler.oScore.ToString();
+    }
+
+    // :: Result
+    [Header("Result")]
+    public GearMiniGame_Result oGEAR_Result;
 }

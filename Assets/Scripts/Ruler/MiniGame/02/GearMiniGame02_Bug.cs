@@ -34,6 +34,8 @@ public class GearMiniGame02_Bug : MonoBehaviour
             yield return null;
         }
 
+        // :: Add Score
+        App.oInstance.oManagerRuler.oMiniGame02.AddScore();
         this.Close();
     }
 }

@@ -6,13 +6,13 @@ public class RulerMiniGame01 : SHRuler
 {
     public override void Init()
     {
-        // :: �귯 ����
+        // :: 룰러 설정
         App.oInstance.oManagerRuler.SetRuler_MiniGame01(this);
 
-        // :: UI ����
+        // :: UI 설정
         this.oUI.Init(this);
 
-        // :: ��ġ �ʱ�ȭ
+        // :: 수치 초기화
         this.ResetStatus();
     }
 
@@ -27,7 +27,7 @@ public class RulerMiniGame01 : SHRuler
     {
         this.ResetStatus();
 
-        this.oUI.CloseResult();
+        this.oUI.oGEAR_Result.Close();
         this.oUI.ShowButton_Start();
     }
 
@@ -43,10 +43,40 @@ public class RulerMiniGame01 : SHRuler
         }
         this.iCoroutine_StartTime =
             this.StartCoroutine(this.IENStartTime(() => {
-                this.oUI.OpenResult(); // : ��� ǥ��
+                this.ShowResult(); // : 결과 표시
                 this.oUI.Stop_SpawnBugs(); 
-                // : �� �̻� ���� �������� ����
+                // : 더 이상 버그 생성하지 않음
             }));
+    }
+    private void ShowResult()
+    {
+        // :: Log : 축하
+        this.oUI.oGEAR_Result.OpenLog(null, "개발자는 멋지게 버그를 잡았습니다.");
+        // :: Log : 축하
+        this.oUI.oGEAR_Result.OpenLog(null,
+            string.Format("총 {0} 점의 점수를 얻었습니다.",
+            this.oScore));
+        // :: Log : 기본금
+        int addMoney = Mathf.FloorToInt(
+            this.oScore * this.oData.oAddScore);
+        this.oUI.oGEAR_Result.OpenLog(null,
+            string.Format("월급으로 {0} 원이 입금되었습니다.",
+            addMoney));
+        // :: Log : 추가금 : 공식 현재 없음
+        int extraMoney = Mathf.FloorToInt(this.oScore / 500) * 100;
+        this.oUI.oGEAR_Result.OpenLog(null,
+            string.Format("추가 수당 {0} 원이 더 들어왔습니다.",
+            extraMoney));
+        // :: Log : 총 금액
+        int allMoney = addMoney + extraMoney;
+        this.oUI.oGEAR_Result.OpenLog(null,
+            string.Format("통장에 총 {0} 원이 입금되었군요.",
+            allMoney));
+        App.oInstance.oManagerStatus.AddMoney(allMoney); // : 실제 추가
+        // :: Log : 마지막 문구
+        this.oUI.oGEAR_Result.OpenLog(null, "개발자는 정말로 행복해졌습니다!");
+
+        this.oUI.oGEAR_Result.Open();
     }
     [Header("Time")]
     private float iRemainingTime;
@@ -64,19 +94,19 @@ public class RulerMiniGame01 : SHRuler
     {
         while(this.iRemainingTime > 0)
         {
-            // :: �ð� ����
+            // :: 시간 누적
             this.iRemainingTime -= Time.deltaTime;
 
-            // :: ���� �ð�
+            // :: 남은 시간
             this.oUI.UpdateRemainingTime();
             yield return null;
         }
 
-        // :: 0���� ����
+        // :: 0으로 설정
         this.iRemainingTime = 0;
         this.oUI.UpdateRemainingTime();
 
-        // :: ���� �׼� ����
+        // :: 다음 액션 실행
         _afterAction?.Invoke();
     }
 

@@ -9,38 +9,12 @@ public class GearMiniGame_Result : MonoBehaviour
     {
         this.AddButtonScenario_Retry();
         this.AddButtonScenario_EXIT();
+
+        this.Close();
     }
     public void Open()
     {
-        App.oInstance.oManagerRuler.oMiniGame01.StartCoroutine(this.IENOpen());
         this.gameObject.SetActive(true);
-    }
-    private IEnumerator IENOpen()
-    {
-        var ruler = App.oInstance.oManagerRuler.oMiniGame01;
-        // :: Log : 축하
-        this.OpenLog(null, "개발자는 멋지게 버그를 잡았습니다.");
-        // :: Log : 축하
-        this.OpenLog(null, string.Format("총 {0} 점의 점수를 얻었습니다.",
-            ruler.oScore));
-        // :: Log : 기본금
-        int addMoney = Mathf.FloorToInt(
-            ruler.oScore * ruler.oData.oAddScore);
-        this.OpenLog(null, string.Format("월급으로 {0} 원이 입금되었습니다.",
-            addMoney));
-        // :: Log : 추가금 : 공식 현재 없음
-        int extraMoney = Mathf.FloorToInt(ruler.oScore / 500) * 100;
-        this.OpenLog(null, string.Format("추가 수당 {0} 원이 더 들어왔습니다.",
-            extraMoney));
-        // :: Log : 총 금액
-        int allMoney = addMoney + extraMoney;
-        this.OpenLog(null, string.Format("통장에 총 {0} 원이 입금되었군요.",
-            allMoney));
-        App.oInstance.oManagerStatus.AddMoney(allMoney); // : 실제 추가
-        // :: Log : 마지막 문구
-        this.OpenLog(null, "개발자는 정말로 행복해졌습니다!");
-
-        yield break;
     }
     public void Close()
     {
@@ -58,7 +32,7 @@ public class GearMiniGame_Result : MonoBehaviour
     [Header("Logs")]
     public Transform oTRANSFORM_Logs;
     public GameObject PREFAB_Log;
-    private void OpenLog(Sprite _sprite, string _text)
+    public void OpenLog(Sprite _sprite, string _text)
     {
         // :: 생성
         var goLog = Object.Instantiate<GameObject>(
@@ -71,15 +45,17 @@ public class GearMiniGame_Result : MonoBehaviour
 
     // :: Buttons
     [Header("Buttons")]
-    public Button BUTTON_Retry;
+    [SerializeField]
+    private Button BUTTON_Retry;
     private void AddButtonScenario_Retry()
     {
         this.BUTTON_Retry.onClick.AddListener(() =>
         {
-            App.oInstance.oManagerRuler.oMiniGame01.Retry();
+            Debug.LogWarning("각자 Retry 할 수 있도록 Ruler를 변경해야 함");
         });
     }
-    public Button BUTTON_EXIT;
+    [SerializeField]
+    private Button BUTTON_EXIT;
     private void AddButtonScenario_EXIT()
     {
         this.BUTTON_EXIT.onClick.AddListener(() =>

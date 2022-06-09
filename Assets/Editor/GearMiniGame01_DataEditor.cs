@@ -17,30 +17,30 @@ public class GearMiniGame01_DataEditor : Editor
     public override void OnInspectorGUI()
     {
         this.iData.oGamePlaySeconds 
-            = EditorGUILayout.IntField("°ÔÀÓ ÇÃ·¹ÀÌ ½Ã°£(ÃÊ)", 
+            = EditorGUILayout.IntField("ê²Œì„ í”Œë ˆì´ ì‹œê°„(ì´ˆ)", 
             this.iData.oGamePlaySeconds);
 
         this.iData.oAddScore
-            = EditorGUILayout.IntField("Å¬¸¯ ´ç Á¡¼ö", this.iData.oAddScore);
+            = EditorGUILayout.IntField("í´ë¦­ ë‹¹ ì ìˆ˜", this.iData.oAddScore);
 
         this.iData.oRandomRespawn
-            = EditorGUILayout.Toggle("·£´ı Àç»ı¼º", this.iData.oRandomRespawn);
+            = EditorGUILayout.Toggle("ëœë¤ ì¬ìƒì„±", this.iData.oRandomRespawn);
         if(this.iData.oRandomRespawn)
         {
             this.iData.oRespawnTime_Min
-                = EditorGUILayout.FloatField("Àç»ı¼º ·£´ı ½Ã°£: ÃÖ¼Ò",
+                = EditorGUILayout.FloatField("ì¬ìƒì„± ëœë¤ ì‹œê°„: ìµœì†Œ",
                 this.iData.oRespawnTime_Min);
             this.iData.oRespawnTime_Max
-                = EditorGUILayout.FloatField("Àç»ı¼º ·£´ı ½Ã°£: ÃÖ´ë",
+                = EditorGUILayout.FloatField("ì¬ìƒì„± ëœë¤ ì‹œê°„: ìµœëŒ€",
                 this.iData.oRespawnTime_Max);
         } else
         {
             this.iData.oRespawnTime
-                = EditorGUILayout.FloatField("Àç»ı¼º ½Ã°£", 
+                = EditorGUILayout.FloatField("ì¬ìƒì„± ì‹œê°„", 
                 this.iData.oRespawnTime);
         }
         this.iData.oDisappearTime
-            = EditorGUILayout.FloatField("»ç¶óÁö´Â ½Ã°£",
+            = EditorGUILayout.FloatField("ì‚¬ë¼ì§€ëŠ” ì‹œê°„",
             this.iData.oDisappearTime);
     }
 }
