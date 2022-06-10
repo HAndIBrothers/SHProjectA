@@ -7,10 +7,15 @@ public class GearMiniGame_Result : MonoBehaviour
 {
     public void Init()
     {
-        this.AddButtonScenario_Retry();
         this.AddButtonScenario_EXIT();
-
         this.Close();
+    }
+    public void MInit_Retry(System.Action _action)
+    {
+        this.BUTTON_Retry.onClick.AddListener(() =>
+        {
+            _action?.Invoke();
+        });
     }
     public void Open()
     {
@@ -47,13 +52,6 @@ public class GearMiniGame_Result : MonoBehaviour
     [Header("Buttons")]
     [SerializeField]
     private Button BUTTON_Retry;
-    private void AddButtonScenario_Retry()
-    {
-        this.BUTTON_Retry.onClick.AddListener(() =>
-        {
-            Debug.LogWarning("각자 Retry 할 수 있도록 Ruler를 변경해야 함");
-        });
-    }
     [SerializeField]
     private Button BUTTON_EXIT;
     private void AddButtonScenario_EXIT()

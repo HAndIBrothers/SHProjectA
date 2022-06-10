@@ -6,4 +6,5 @@ public class GearMiniGame02_Data : MonoBehaviour
 {
     public int oAddScore = 100;
     public int oHeart = 1;
+    public float oMovingSpeed = 1;
 }

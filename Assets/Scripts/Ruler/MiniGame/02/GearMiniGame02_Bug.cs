@@ -12,7 +12,8 @@ public class GearMiniGame02_Bug : MonoBehaviour
 
         this.transform.localPosition = new Vector2(_x, this.iYPosition);
 
-        this.StartCoroutine(this.IENMove());
+        App.oInstance.oManagerRuler.oMiniGame02
+            .StartCoroutine(this.IENMove());
     }
     public void Close()
     {

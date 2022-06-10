@@ -21,5 +21,8 @@ public class GearMiniGame02_DataEditor : Editor
 
         this.iData.oHeart
             = EditorGUILayout.IntField("기본 하트 개수", this.iData.oHeart);
+
+        this.iData.oMovingSpeed
+            = EditorGUILayout.FloatField("움직임 속도", this.iData.oMovingSpeed);
     }
 }

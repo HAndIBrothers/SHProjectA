@@ -16,6 +16,7 @@ public class UIMiniGame01 : SHUI
         // :: Init
         this.Init_SectionBug();
         this.oGEAR_Result.Init(); // : 결과 초기화
+        this.oGEAR_Result.MInit_Retry(this.iRuler.Retry);
     }
 
     // :: 버그

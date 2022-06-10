@@ -765,7 +765,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2793f70887af64bade7b76b6d3e12f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PREFAB_Heart: {fileID: 0}
   iData: {fileID: 818413388}
   oUI: {fileID: 1402263714}
 --- !u!1 &662904187
@@ -1108,6 +1107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oAddScore: 100
+  oHeart: 1
+  oMovingSpeed: 4
 --- !u!1 &837640430
 GameObject:
   m_ObjectHideFlags: 0
@@ -3369,7 +3370,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 150, y: 150}
+  m_Size: {x: 130, y: 130}
   m_EdgeRadius: 0
 --- !u!114 &2010193567
 MonoBehaviour:

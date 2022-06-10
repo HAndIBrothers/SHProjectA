@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class RulerMiniGame02 : SHRuler
 {
-    [Header("Heart")]
-    [SerializeField]
-    private GameObject PREFAB_Heart;
     public int oHeart { get; private set; } = 0;
     private void ResetHeart()
     {
@@ -96,4 +93,17 @@ public class RulerMiniGame02 : SHRuler
         this.oUI.Start_SpawnBugs();
     }
 
+    public void Retry()
+    {
+        // :: 모든 코루틴 정지
+        this.StopAllCoroutines();
+
+        // :: Reset Status
+        this.ResetHeart();
+        this.ResetScore();
+
+        // :: UI 초기화
+        this.oUI.oGEAR_Result.Close();
+        this.oUI.ShowButton_Start(true);
+    }
 }

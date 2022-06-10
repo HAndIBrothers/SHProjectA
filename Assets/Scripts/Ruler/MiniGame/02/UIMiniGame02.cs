@@ -15,6 +15,7 @@ public class UIMiniGame02 : SHUI
         this.InitHearts();
         this.ShowButton_Start(true);
         this.oGEAR_Result.Init();
+        this.oGEAR_Result.MInit_Retry(this.iRuler.Retry);
 
         // :: 버튼 시나리오
         this.AddButtonScenario_Start();
@@ -32,16 +33,25 @@ public class UIMiniGame02 : SHUI
     }
     public void Stop_SpawnBugs()
     {
-        App.oInstance.oManagerRuler.oMiniGame02
-            .StopCoroutine(this.iCoroutine_SpawnBugs);
+        this.iRuler.StopCoroutine(this.iCoroutine_SpawnBugs);
+        this.iRuler.StopAllCoroutines();
+
+        // :: 모든 버그 삭제
+        this.iRuler.StartCoroutine(this.IENDestroyAllBugs());
+    }
+    // >> Destroy All Bugs
+    private IEnumerator IENDestroyAllBugs()
+    {
+        while (this.oSECTION_Bug.transform.childCount > 0)
+        {
+            Object.Destroy(this.oSECTION_Bug.transform.GetChild(0).gameObject);
+            yield return null;
+        }
     }
     private IEnumerator IENSpawnBugs()
     {
         // :: 초기화
-        while (this.oSECTION_Bug.transform.childCount > 0)
-        {
-            Object.Destroy(this.oSECTION_Bug.transform.GetChild(0).gameObject);
-        }
+        yield return this.IENDestroyAllBugs();
 
         // :: 스크린 사이즈 확인
         Rect rect = this.oSECTION_Bug.GetComponent<RectTransform>().rect;
@@ -69,7 +79,7 @@ public class UIMiniGame02 : SHUI
 
     [Header("버튼")]
     public Button BUTTON_Start;
-    private void ShowButton_Start(bool _check)
+    public void ShowButton_Start(bool _check)
     {
         this.BUTTON_Start.gameObject.SetActive(_check);
     }
@@ -86,7 +96,6 @@ public class UIMiniGame02 : SHUI
     public GearMiniGame02_Controller BUTTON_Left;
     public GearMiniGame02_Controller BUTTON_Right;
     private Coroutine iCoroutine_LeftAction = null;
-    private float iMoveSpeed = 2f;
     private IEnumerator IENActionLeft()
     {
         while (true)
@@ -94,7 +103,7 @@ public class UIMiniGame02 : SHUI
             var transform = this.IMAGE_Player.transform;
             
             transform.position 
-                -= new Vector3(Time.deltaTime, 0) * this.iMoveSpeed;
+                -= new Vector3(Time.deltaTime, 0) * this.iRuler.oData.oMovingSpeed;
 
             if(transform.localPosition.x < -this.iSizeHalf)
             {
@@ -113,7 +122,7 @@ public class UIMiniGame02 : SHUI
             var transform = this.IMAGE_Player.transform;
 
             transform.position
-                += new Vector3(Time.deltaTime, 0) * this.iMoveSpeed;
+                += new Vector3(Time.deltaTime, 0) * this.iRuler.oData.oMovingSpeed;
 
             if (transform.localPosition.x > this.iSizeHalf)
             {
