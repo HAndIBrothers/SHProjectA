@@ -4,50 +4,55 @@ using UnityEngine;
 
 public class ManagerRuler : SHManager
 {
-    // :: ∑Œ∞Ì
+    // :: Î°úÍ≥†
     public RulerLogo oLogo = null;
     public void SetRuler_Logo(RulerLogo _ruler)
     {
         this.oLogo = _ruler;
     }
 
-    // :: ∑Œ∫Ò
+    // :: Î°úÎπÑ
     public RulerLobby oLobby = null;
     public void SetRuler_Lobby(RulerLobby _ruler)
     {
         this.oLobby = _ruler;
     }
 
-    // :: ºø∑∫∆Æ
+    // :: ÏÖÄÎ†âÌä∏
     public RulerSelect oSelect = null;
     public void SetRuler_Select(RulerSelect _ruler)
     {
         this.oSelect = _ruler;
     }
 
-    // :: ¿Œ∞‘¿”
+    // :: Ïù∏Í≤åÏûÑ
     public RulerInGame oInGame = null;
     public void SetRuler_InGame(RulerInGame _ruler)
     {
         this.oInGame = _ruler;
     }
 
-    // :: ∏Æº≥∆Æ
+    // :: Î¶¨ÏÑ§Ìä∏
     public RulerResult oResult = null;
     public void SetRuler_Result(RulerResult _ruler)
     {
         this.oResult = _ruler;
     }
 
-    // :: πÃ¥œ ∞‘¿”
-    public RulerMiniGame01 oMiniGame01 = null;
+    // :: ÎØ∏Îãà Í≤åÏûÑ
+    public RulerMiniGame01 oMiniGame01 { get; private set; } = null;
     public void SetRuler_MiniGame01(RulerMiniGame01 _ruler)
     {
         this.oMiniGame01 = _ruler;
     }
-    public RulerMiniGame02 oMiniGame02 = null;
+    public RulerMiniGame02 oMiniGame02 { get; private set; } = null;
     public void SetRuler_MiniGame02(RulerMiniGame02 _ruler)
     {
         this.oMiniGame02 = _ruler;
+    }
+    public RulerMiniGame03 oMiniGame03 { get; private set; } = null;
+    public void SetRuler_MiniGame03(RulerMiniGame03 _ruler)
+    {
+        this.oMiniGame03 = _ruler;
     }
 }
