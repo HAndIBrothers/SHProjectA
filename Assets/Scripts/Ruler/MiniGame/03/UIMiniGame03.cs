@@ -1,15 +1,18 @@
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UIMiniGame03 : SHUI
 {
-
     private RulerMiniGame03 iRuler;
     public override void Init(SHRuler _ruler)
     {
         // :: Save Ruler
         this.iRuler = (RulerMiniGame03)_ruler;
+
+        this.GEAR_Result.Init();
+        this.GEAR_Result.MInit_Retry(this.iRuler.Retry);
 
         // :: Cards
         this.Init_Cards();
@@ -35,6 +38,39 @@ public class UIMiniGame03 : SHUI
     [SerializeField]
     private Transform SECTION_Cards;
     private Dictionary<int, sCard> iCards;
+    public GearMiniGame03_Card GetCardGear(int _id)
+    {
+        return this.iCards[_id].oGear;
+    }
+    public void OpenAll()
+    {
+        Debug.LogWarning("Open");
+        this.ShuffleCards();
+        foreach(var card in this.iCards)
+        {
+            card.Value.oGear.SetStatus(Enums.MiniGame03.Card.eStatus.OPEN);
+        }
+    }
+    public bool oIsAllClose
+    {
+        get
+        {
+            foreach(var card in this.iCards)
+            {
+                if (card.Value.oGear.oStatus
+                    != Enums.MiniGame03.Card.eStatus.CLOSE) return false;
+            }
+            return true;
+        }
+    }
+    private void ShuffleCards()
+    {
+        var random = new System.Random();
+        foreach(var card in this.iCards.ToList().OrderBy(item => random.Next()))
+        {
+            card.Value.oGear.transform.SetAsLastSibling();
+        }
+    }
     private void Init_Cards()
     {
         // :: Init
@@ -53,9 +89,16 @@ public class UIMiniGame03 : SHUI
                 gear.Init();
                 sCard card = new sCard(index, gear, 
                     Mathf.FloorToInt(index / 2));
-                card.oGear.ShowValue();
+                card.oGear.ShowValue(false);
                 this.iCards.Add(card.oID, card);
             }
         }
+    }
+    [Header("Result")]
+    [SerializeField]
+    private GearMiniGame_Result GEAR_Result;
+    public void ShowResult(bool _check)
+    {
+        this.GEAR_Result.gameObject.SetActive(_check);
     }
 }
