@@ -32,13 +32,6 @@ public class ManagerRuler : SHManager
         this.oInGame = _ruler;
     }
 
-    // :: 리설트
-    public RulerResult oResult = null;
-    public void SetRuler_Result(RulerResult _ruler)
-    {
-        this.oResult = _ruler;
-    }
-
     // :: 미니 게임
     public RulerMiniGame01 oMiniGame01 { get; private set; } = null;
     public void SetRuler_MiniGame01(RulerMiniGame01 _ruler)

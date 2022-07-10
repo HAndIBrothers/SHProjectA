@@ -824,7 +824,7 @@ GameObject:
   - component: {fileID: 494883487}
   - component: {fileID: 494883488}
   m_Layer: 0
-  m_Name: Select
+  m_Name: Ruler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -856,7 +856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec383b6b53e6fe94a951ec1770f8f0fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oUI: {fileID: 649426803}
 --- !u!1001 &575383489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1068,7 +1067,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1080, y: 1920}
+  m_ReferenceResolution: {x: 1440, y: 2560}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

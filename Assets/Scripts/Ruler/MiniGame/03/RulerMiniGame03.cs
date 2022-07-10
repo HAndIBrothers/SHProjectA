@@ -12,6 +12,7 @@ public class RulerMiniGame03 : SHRuler
         App.oInstance.oManagerRuler.SetRuler_MiniGame03(this);
 
         // :: Set UI
+        this.iUI = GameObject.FindObjectOfType<UIMiniGame03>();
         this.iUI.Init(this);
 
         // :: 게임 시작
@@ -78,8 +79,6 @@ public class RulerMiniGame03 : SHRuler
         this.iInput = false;
     }
     // :: UI
-    [Header("UI")]
-    [SerializeField]
     private UIMiniGame03 iUI;
 
     // >> Retry

@@ -75,7 +75,9 @@ public class RulerMiniGame02 : SHRuler
     {
         // :: 룰러 설정
         App.oInstance.oManagerRuler.SetRuler_MiniGame02(this);
+
         // :: UI 설정
+        this.iUI = GameObject.FindObjectOfType<UIMiniGame02>();
         this.iUI.Init(this);
 
         // :: 초기화
@@ -84,8 +86,6 @@ public class RulerMiniGame02 : SHRuler
     }
 
     // :: UI
-    [Header("UI")]
-    [SerializeField]
     private UIMiniGame02 iUI;
     public void StartGame()
     {

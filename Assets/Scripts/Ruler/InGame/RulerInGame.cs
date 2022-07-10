@@ -6,13 +6,14 @@ public class RulerInGame : SHRuler
 {
     public override void Init()
     {
-        // :: ·ê·¯ ¼Â
+        // :: ë£°ëŸ¬ ì…‹
         App.oInstance.oManagerRuler.SetRuler_InGame(this);
 
         // :: UI / GO Init
-        this.oUI.Init();
+        this.iUI = GameObject.FindObjectOfType<UIInGame>();
+        this.iUI.Init();
     }
 
     // :: UI Logo
-    public UIInGame oUI;
+    private UIInGame iUI;
 }

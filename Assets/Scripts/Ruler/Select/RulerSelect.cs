@@ -6,14 +6,15 @@ public class RulerSelect : SHRuler
 {
     public override void Init()
     {
-        // :: ·ê·¯ ¼Â
+        // :: ë£°ëŸ¬ ì…‹
         App.oInstance.oManagerRuler.SetRuler_Select(this);
 
         // :: UI / GO Init
-        this.oUI.Init();
+        this.iUI = GameObject.FindObjectOfType<UISelect>();
+        this.iUI.Init();
     }
 
     // :: UI Logo
-    public UISelect oUI;
+    private UISelect iUI;
 
 }

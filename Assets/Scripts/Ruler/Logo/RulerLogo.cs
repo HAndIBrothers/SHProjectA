@@ -6,13 +6,14 @@ public class RulerLogo : SHRuler
 {
     public override void Init()
     {
-        // :: ·ê·¯ ¼Â
+        // :: ë£°ëŸ¬ ì…‹
         App.oInstance.oManagerRuler.SetRuler_Logo(this);
 
         // :: UI / GO Init
-        this.oUI.Init();
+        this.iUI = GameObject.FindObjectOfType<UILogo>();
+        this.iUI.Init();
     }
 
     // :: UI Logo
-    public UILogo oUI;
+    private UILogo iUI;
 }
