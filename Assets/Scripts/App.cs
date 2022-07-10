@@ -31,6 +31,9 @@ public class App : SHBehaviour
             return;
         }
 
+        // :: 해상도 고정
+        this.SetResolution();
+
         // :: 오브젝트 입력
         iInstance = this;
         Object.DontDestroyOnLoad(this.gameObject);
@@ -40,6 +43,11 @@ public class App : SHBehaviour
 
         // :: 씬 로드
         this.oManagerScene.LoadScene(Enums.eScene.LOGO);
+    }
+    // >> 해상도 고정
+    private void SetResolution()
+    {
+        Screen.SetResolution(1440, 2560, false);
     }
 
     public ManagerScene oManagerScene { get; private set; }
