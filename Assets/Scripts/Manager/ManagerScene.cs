@@ -15,7 +15,7 @@ public class ManagerScene : SHManager
     // :: Load Scene
     public void LoadScene(Enums.eScene _eScene)
     {
-        // :: DOTween ªË¡¶
+        // :: DOTween ÏÇ≠Ï†ú
         DOTween.KillAll();
 
         AsyncOperation async = SceneManager.LoadSceneAsync((int)_eScene);
@@ -26,6 +26,7 @@ public class ManagerScene : SHManager
             {
                 // :: Init Ruler
                 GameObject.FindObjectOfType<SHRuler>().Init();
+                App.oInstance.oDim.ShowDim(false, 1);
             }
         };
     }

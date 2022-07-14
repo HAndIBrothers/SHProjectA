@@ -41,9 +41,21 @@ public class App : SHBehaviour
         // :: 매니저 등록
         this.SetManagers();
 
+        // :: Dim 등록
+        this.InitDim();
+
         // :: 씬 로드
         this.oManagerScene.LoadScene(Enums.eScene.LOGO);
     }
+    // >> Dim 등록
+    private UIDim iDim;
+    public UIDim oDim => this.iDim;
+    private void InitDim()
+    {
+        this.iDim = GameObject.FindObjectOfType<UIDim>();
+        this.iDim.Init();
+    }
+
     // >> 해상도 고정
     private void SetResolution()
     {
