@@ -1,5 +1,10 @@
 public static class Enums
 {
+    public enum eDirection
+    {
+        UP = 0,
+        DOWN = 1
+    }
     public enum eScene
     {
         APP = 0,

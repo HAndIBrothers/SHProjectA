@@ -48,4 +48,9 @@ public class ManagerRuler : SHManager
     {
         this.oMiniGame03 = _ruler;
     }
+    public RulerMiniGame04 oMiniGame04 { get; private set; } = null;
+    public void SetRuler_MiniGame04(RulerMiniGame04 _ruler)
+    {
+        this.oMiniGame04 = _ruler;
+    }
 }

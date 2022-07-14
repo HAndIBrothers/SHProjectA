@@ -19,6 +19,10 @@ public class UIMiniGame04 : SHUI
         this.iGear_Result = this.transform.Find("Gear_Result")
             .GetComponent<GearMiniGame_Result>();
         this.iGear_Result.Init();
+
+        // :: Init
+        this.InitSection_Target();
+        this.InitUI_Score();
     }
     private Button iButton_Start;
     private void InitButton_Start()
@@ -31,5 +35,25 @@ public class UIMiniGame04 : SHUI
     public void ShowButton_Start(bool _check)
     {
         this.iButton_Start.gameObject.SetActive(_check);
+    }
+
+    // >> Target
+    private Transform iSection_Target;
+    public Transform oSection_Target => this.iSection_Target;
+    private void InitSection_Target()
+    {
+        this.iSection_Target = this.transform.Find("Section_Target");
+    }
+
+    // >> Score
+    private Text iText_Score;
+    private void InitUI_Score()
+    {
+        this.iText_Score = this.transform.Find("Section_Score")
+            .Find("Text_Score").GetComponent<Text>();
+    }
+    public void UpdateScore()
+    {
+        this.iText_Score.text = this.iRuler.oScore.ToString();
     }
 }
