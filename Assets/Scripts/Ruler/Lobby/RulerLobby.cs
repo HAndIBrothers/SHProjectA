@@ -12,6 +12,8 @@ public class RulerLobby : SHRuler
         // :: UI / GO Init
         this.iUI = GameObject.FindObjectOfType<UILobby>();
         this.iUI.Init();
+
+        this.iUI.Open();
     }
 
     // :: UI Logo

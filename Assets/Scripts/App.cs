@@ -66,6 +66,7 @@ public class App : SHBehaviour
     public ManagerRuler oManagerRuler { get; private set; }
     public ManagerStatus oManagerStatus { get; private set; }
     public ManagerData oManagerData { get; private set; }
+    public ManagerPlayer oManagerPlayer { get; private set; }
     private void SetManagers()
     {
         // :: Manager GO
@@ -78,6 +79,7 @@ public class App : SHBehaviour
         this.oManagerRuler = this.SetManager<ManagerRuler>(goManager);
         this.oManagerStatus = this.SetManager<ManagerStatus>(goManager);
         this.oManagerData = this.SetManager<ManagerData>(goManager);
+        this.oManagerPlayer = this.SetManager<ManagerPlayer>(goManager);
     }
     private T SetManager<T>(GameObject goManager) where T: SHManager
     {
