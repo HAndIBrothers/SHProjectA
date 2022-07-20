@@ -16,4 +16,5 @@ public class RulerLobby : SHRuler
 
     // :: UI Logo
     private UILobby iUI;
+    public UILobby oUI => this.iUI;
 }
