@@ -93,31 +93,46 @@ public class UILobby : MonoBehaviour
     {
         this.iName.text = string.Format("{0}", App.oInstance.oManagerPlayer.oName);
     }
+    private Button iButton_PaidCoin;
     private Text iPaidCoin;
     private void InitText_PaidCoin()
     {
-        this.iPaidCoin = 
-            this.iProfile.Find("Section_PaidCoin").Find("Text_PaidCoin").GetComponent<Text>();
+        this.iButton_PaidCoin = this.iProfile.Find("Button_PaidCoin").GetComponent<Button>();
+        this.iButton_PaidCoin.onClick.AddListener(() =>
+        {
+            Debug.LogWarning(":: UILobby >> 유료 화폐창 열기");
+        });
+        this.iPaidCoin = this.iButton_PaidCoin.transform.Find("Text_PaidCoin").GetComponent<Text>();
     }
     private void RenewPaidCoin()
     {
         this.iPaidCoin.text = string.Format("{0:#,0}", App.oInstance.oManagerPlayer.oPaidCoin);
     }
+    private Button iButton_FreeCoin;
     private Text iFreeCoin;
     private void InitText_FreeCoin()
     {
-        this.iFreeCoin =
-            this.iProfile.Find("Section_FreeCoin").Find("Text_FreeCoin").GetComponent<Text>();
+        this.iButton_FreeCoin = this.iProfile.Find("Button_FreeCoin").GetComponent<Button>();
+        this.iButton_FreeCoin.onClick.AddListener(() =>
+        {
+            Debug.LogWarning(":: UILobby >> 무료 화폐창 열기");
+        });
+        this.iFreeCoin = this.iButton_FreeCoin.transform.Find("Text_FreeCoin").GetComponent<Text>();
     }
     private void RenewFreeCoin()
     {
         this.iFreeCoin.text = string.Format("{0:#,0}", App.oInstance.oManagerPlayer.oFreeCoin);
     }
+    private Button iButton_ProfileImage;
     private Image iProfileImage;
     private void InitImage_ProfileImage()
     {
-        this.iProfileImage =
-            this.iProfile.Find("Section_ProfileImage").Find("Image_ProfileImage").GetComponent<Image>();
+        this.iButton_ProfileImage = this.iProfile.Find("Button_ProfileImage").GetComponent<Button>();
+        this.iButton_ProfileImage.onClick.AddListener(() =>
+        {
+            Debug.LogWarning(":: UILobby >> 프로필창 열기");
+        });
+        this.iProfileImage = this.iButton_ProfileImage.transform.Find("Image_ProfileImage").GetComponent<Image>();
     }
     private void RenewProfileImage()
     {
